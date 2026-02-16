@@ -33,9 +33,9 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            max-width: 800px;
+            max-width: 96%;
             margin: 0 auto;
-            padding: 40px 24px;
+            padding: 24px 20px;
             background: var(--bg);
             color: var(--text);
             line-height: 1.7;
@@ -57,7 +57,7 @@
         hr {
             border: none;
             border-top: 1px solid var(--border);
-            margin: 32px 0;
+            margin: 16px 0;
         }
 
         .controls {
@@ -86,12 +86,20 @@
             color: var(--link);
         }
 
+        /* --- LAYOUT --- */
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
         /* --- HEADER --- */
         .header {
             display: flex;
             gap: 32px;
             align-items: flex-start;
-            margin-bottom: 12px;
+            margin-bottom: 24px;
         }
 
         .header-text {
@@ -111,8 +119,8 @@
         }
 
         .header-img {
-            width: 180px;
-            height: 180px;
+            width: 140px;
+            height: 140px;
             border-radius: 8px;
             object-fit: cover;
             flex-shrink: 0;
@@ -139,13 +147,13 @@
         h2 {
             font-size: 1.4rem;
             font-weight: 700;
-            margin-bottom: 14px;
+            margin-bottom: 8px;
         }
 
         h3 {
             font-size: 1.05rem;
             font-weight: 600;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         p,
@@ -156,18 +164,18 @@
 
         ul {
             padding-left: 20px;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         li {
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .detail-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 8px 24px;
-            margin: 12px 0 20px;
+            gap: 4px 24px;
+            margin: 8px 0 16px;
             font-size: 0.92rem;
         }
 
@@ -194,37 +202,11 @@
             color: var(--text-light);
         }
 
-        /* CALENDAR */
-        .calendar-frame {
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            overflow: hidden;
-            margin: 16px 0;
-        }
-
-        .calendar-frame iframe {
-            width: 100%;
-            height: 500px;
-            border: none;
-        }
-
-        /* CTA */
-        .join-btn {
-            display: inline-block;
-            margin: 16px 0;
-            padding: 12px 28px;
-            background: var(--link);
-            color: #fff;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: opacity 0.2s;
-        }
-
-        .join-btn:hover {
-            opacity: 0.85;
-            color: #fff;
+        /* SCHEDULER SIDEBAR */
+        .sidebar {
+            position: sticky;
+            top: 20px;
+            height: calc(100vh - 40px);
         }
 
         /* FOOTER */
@@ -237,7 +219,11 @@
             text-align: center;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 900px) {
+            .layout-grid {
+                grid-template-columns: 1fr;
+            }
+
             .header {
                 flex-direction: column-reverse;
                 align-items: center;
@@ -262,118 +248,107 @@
 
 <body>
 
-    <!-- Dark Mode & Language Toggle -->
+    <!-- Language Toggle -->
     <div class="controls">
         <button onclick="toggleLanguage()" id="langBtn">EN</button>
-        <button onclick="toggleTheme()" id="themeBtn">🌙</button>
     </div>
 
-    <!-- ===== HEADER ===== -->
-    <div class="header">
-        <div class="header-text">
-            <h1>Cybersickness Araştırma Deneyi</h1>
-            <p data-i18n="header_desc">
-                Bu deney, <a href="https://iui.ku.edu.tr" target="_blank">IUI Lab</a> bünyesinde,
-                sanal gerçeklik ortamlarında yaşanan cybersickness (siber tutma) etkilerini araştırmak
-                amacıyla yürütülmektedir. Deneye katılarak bilimsel çalışmamıza katkıda bulunabilirsiniz.
-            </p>
-            <!-- DÜZENLE: Linkleri güncelleyin -->
-            <div class="links-row">
-                <a href="mailto:iuilab@ku.edu.tr">Email</a> /
-                <a href="https://iui.ku.edu.tr" target="_blank">IUI Lab</a> /
-                <a href="#katilim" data-i18n="link_apply">Başvuru Formu</a>
+    <div class="layout-grid">
+        <!-- LEFT COLUMN -->
+        <div class="main-content">
+            <!-- ===== HEADER ===== -->
+            <div class="header">
+                <div class="header-text">
+                    <h1>Cybersickness Araştırma Deneyi</h1>
+                    <p data-i18n="header_desc">
+                        Bu deney, <a href="https://iui.ku.edu.tr" target="_blank">IUI Lab</a> bünyesinde,
+                        sanal gerçeklik ortamlarında yaşanan cybersickness (siber tutma) etkilerini araştırmak
+                        amacıyla yürütülmektedir. Deneye katılarak bilimsel çalışmamıza katkıda bulunabilirsiniz.
+                    </p>
+                    <!-- DÜZENLE: Linkleri güncelleyin -->
+                    <div class="links-row">
+                        <a href="mailto:iuilab@ku.edu.tr">Email</a> /
+                        <a href="https://iui.ku.edu.tr" target="_blank">IUI Lab</a> /
+                        <a href="#katilim" data-i18n="link_apply">Başvuru Formu</a> /
+                        <a href="documents/informed_volunteer_consent_form.pdf" target="_blank"
+                            data-i18n="link_consent">Onam
+                            Formu</a> /
+                        <a href="documents/ethical_approval.pdf" target="_blank" data-i18n="link_ethics">Etik Onay</a>
+                    </div>
+                </div>
+                <!-- DÜZENLE: Lab veya deney logosu/görseli ekleyin -->
+                <div class="header-img">Lab Logo / Deney Görseli</div>
             </div>
+
+            <hr>
+
+            <!-- ===== DENEY DETAYLARI ===== -->
+            <h2 data-i18n="details_title">Deney Detayları</h2>
+
+            <div class="detail-grid">
+                <div class="label" data-i18n="detail_duration_label">Süre:</div>
+                <div class="value" data-i18n="detail_duration_value">75 – 90 dakika</div>
+
+                <div class="label" data-i18n="detail_age_label">Yaş Aralığı:</div>
+                <div class="value" data-i18n="detail_age_value">18 – 35 yaş</div>
+
+                <div class="label" data-i18n="detail_date_label">Tarihler:</div>
+                <div class="value" data-i18n="detail_date_value">Şubat – Mart 2026</div>
+
+                <div class="label" data-i18n="detail_location_label">Konum:</div>
+                <div class="value" data-i18n="detail_location_value">IUI Lab, SNA Z04</div>
+
+                <div class="label" data-i18n="detail_reward_label">Ödül / Teşvik:</div>
+                <div class="value">—</div>
+            </div>
+
+            <h3 data-i18n="req_title">Katılım Koşulları</h3>
+            <ul>
+                <li data-i18n="req_1">18 yaş ve üzeri olmalısınız</li>
+                <li data-i18n="req_2">Migren, vertigo veya denge bozukluğu gibi nörolojik/vestibüler rahatsızlıklarınız
+                    olmamalıdır</li>
+                <li data-i18n="req_3">Epilepsi tanınız olmamalıdır</li>
+                <li data-i18n="req_4">Düzeltilmiş görme keskinliğiniz yeterli olmalıdır (gözlük/lens kullanabilirsiniz)
+                </li>
+                <li data-i18n="req_5">Son 24 saat içinde alkol tüketmemiş olmalısınız</li>
+            </ul>
+
+            <hr>
+
+            <!-- ===== EKİP ===== -->
+            <h2 data-i18n="team_title">Araştırma Ekibi</h2>
+
+            <!--
+            DÜZENLE: Ekip üyelerini ekle/çıkar.
+            Her satır: İsim, rol, e-posta
+          -->
+            <div class="team-member">
+                <strong>Ömer Sabri Emeksiz</strong> <span data-i18n="role_pi">– Proje Yürütücüsü</span><br>
+                <a href="mailto:oemeksiz24@ku.edu.tr">oemeksiz24@ku.edu.tr</a>
+            </div>
+
+            <div class="team-member">
+                <strong>Prof. Dr. T. Metin Sezgin</strong> <span data-i18n="role_researcher">– Akademik
+                    Danışman</span><br>
+                <a href="mailto:mtsezgin@ku.edu.tr">mtsezgin@ku.edu.tr</a>
+            </div>
+
+            <!-- ===== FOOTER ===== -->
+            <footer>
+                &copy; 2026 IUI Lab — <span data-i18n="uni_name">Koç Üniversitesi</span>
+            </footer>
         </div>
-        <!-- DÜZENLE: Lab veya deney logosu/görseli ekleyin -->
-        <div class="header-img">Lab Logo / Deney Görseli</div>
+
+        <!-- RIGHT COLUMN (SCHEDULER) -->
+        <div class="sidebar">
+            <h2 data-i18n="calendar_title" style="margin-bottom: 12px;">Uygun Tarihler</h2>
+            <!-- Google Calendar Appointment Scheduling begin -->
+            <iframe
+                src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0BgwFJEUFDJFyqAUcsWGURKdvh8NVjTmetu5ySUO7IH9MQJ1NPfw4g1PQpAyDO_KeLwI0kU5SX?gv=true"
+                style="border: 0; width: 100%; height: 800px;" frameborder="0"></iframe>
+            <!-- end Google Calendar Appointment Scheduling -->
+        </div>
     </div>
-
-    <hr>
-
-    <!-- ===== DENEY DETAYLARI ===== -->
-    <h2 data-i18n="details_title">Deney Detayları</h2>
-
-    <div class="detail-grid">
-        <div class="label" data-i18n="detail_duration_label">Süre:</div>
-        <div class="value" data-i18n="detail_duration_value">75 – 90 dakika</div>
-
-        <div class="label" data-i18n="detail_age_label">Yaş Aralığı:</div>
-        <div class="value" data-i18n="detail_age_value">18 – 35 yaş</div>
-
-        <div class="label" data-i18n="detail_date_label">Tarihler:</div>
-        <div class="value" data-i18n="detail_date_value">Şubat – Mart 2026</div>
-
-        <div class="label" data-i18n="detail_location_label">Konum:</div>
-        <div class="value" data-i18n="detail_location_value">IUI Lab, Oda: XXX</div>
-
-        <div class="label" data-i18n="detail_reward_label">Ödül / Teşvik:</div>
-        <div class="value">—</div>
-    </div>
-
-    <h3 data-i18n="req_title">Katılım Koşulları</h3>
-    <ul>
-        <li data-i18n="req_1">18 yaş ve üzeri olmalısınız</li>
-        <li data-i18n="req_2">Bilinen ciddi bir hareket/tutma rahatsızlığınız olmamalıdır</li>
-        <li data-i18n="req_3">Epilepsi tanınız olmamalıdır</li>
-        <li data-i18n="req_4">Düzeltilmiş görme keskinliğiniz yeterli olmalıdır (gözlük/lens kullanabilirsiniz)</li>
-        <li data-i18n="req_5">Son 24 saat içinde alkol tüketmemiş olmalısınız</li>
-    </ul>
-
-    <hr>
-
-    <!-- ===== EKİP ===== -->
-    <h2 data-i18n="team_title">Araştırma Ekibi</h2>
-
-    <!--
-    DÜZENLE: Ekip üyelerini ekle/çıkar.
-    Her satır: İsim, rol, e-posta
-  -->
-    <div class="team-member">
-        <strong>Ad Soyad</strong> <span data-i18n="role_pi">– Proje Yürütücüsü</span><br>
-        <a href="mailto:ornek@ku.edu.tr">ornek@ku.edu.tr</a>
-    </div>
-
-    <div class="team-member">
-        <strong>Ad Soyad</strong> <span data-i18n="role_researcher">– Araştırmacı</span><br>
-        <a href="mailto:ornek2@ku.edu.tr">ornek2@ku.edu.tr</a>
-    </div>
-
-    <div class="team-member">
-        <strong>Ad Soyad</strong> <span data-i18n="role_researcher2">– Araştırmacı</span><br>
-        <a href="mailto:ornek3@ku.edu.tr">ornek3@ku.edu.tr</a>
-    </div>
-
-    <hr>
-
-    <!-- ===== TAKVİM ===== -->
-    <h2 data-i18n="calendar_title">Uygun Tarihler</h2>
-    <p data-i18n="calendar_desc" style="color: var(--text-light); margin-bottom: 8px;">Aşağıdaki takvimden uygun deney
-        saatlerini görebilirsiniz.</p>
-
-    <div class="calendar-frame">
-        <iframe src="https://calendar.google.com/calendar/embed?src=stopal21%40ku.edu.tr&ctz=Europe%2FIstanbul"
-            frameborder="0" scrolling="no"></iframe>
-    </div>
-
-    <hr>
-
-    <!-- ===== KATILIM ===== -->
-    <h2 id="katilim" data-i18n="cta_title">Deneye Katıl</h2>
-    <p data-i18n="cta_desc">
-        Deneye katılmak isterseniz aşağıdaki formu doldurmanız yeterlidir.
-        Bilgileriniz gizli tutulacaktır.
-    </p>
-
-    <!-- DÜZENLE: Google Forms linkinizi buraya yapıştırın -->
-    <a href="https://forms.google.com/FORM_ID_BURAYA" target="_blank" rel="noopener" class="join-btn"
-        data-i18n="cta_btn">
-        📋 Başvuru Formunu Doldur
-    </a>
-
-    <!-- ===== FOOTER ===== -->
-    <footer>
-        &copy; 2026 IUI Lab — <span data-i18n="uni_name">Koç Üniversitesi</span>
-    </footer>
 
     <!-- ===== SCRIPTS ===== -->
     <script>
@@ -385,26 +360,28 @@
             tr: {
                 header_desc: "Bu deney, IUI Lab bünyesinde, sanal gerçeklik ortamlarında yaşanan cybersickness (siber tutma) etkilerini araştırmak amacıyla yürütülmektedir. Deneye katılarak bilimsel çalışmamıza katkıda bulunabilirsiniz.",
                 link_apply: "Başvuru Formu",
+                link_consent: "Onam Bildirimi",
+                link_ethics: "Etik Onay",
                 details_title: "Deney Detayları",
                 detail_duration_label: "Süre:",
-                detail_duration_value: "55 – 60 dakika",
+                detail_duration_value: "75 – 90 dakika",
                 detail_age_label: "Yaş Aralığı:",
                 detail_age_value: "18 – 35 yaş",
                 detail_date_label: "Tarihler:",
                 detail_date_value: "Şubat – Mart 2026",
                 detail_location_label: "Konum:",
-                detail_location_value: "IUI Lab, Oda: XXX",
+                detail_location_value: "IUI Lab, SNA Z04",
                 detail_reward_label: "Ödül / Teşvik:",
                 req_title: "Katılım Koşulları",
                 req_1: "18 yaş ve üzeri olmalısınız",
-                req_2: "Bilinen ciddi bir hareket/tutma rahatsızlığınız olmamalıdır",
+                req_2: "Migren, vertigo veya denge bozukluğu gibi nörolojik/vestibüler rahatsızlıklarınız olmamalıdır",
                 req_3: "Epilepsi tanınız olmamalıdır",
                 req_4: "Düzeltilmiş görme keskinliğiniz yeterli olmalıdır (gözlük/lens kullanabilirsiniz)",
                 req_5: "Son 24 saat içinde alkol tüketmemiş olmalısınız",
                 team_title: "Araştırma Ekibi",
                 role_pi: "– Proje Yürütücüsü",
-                role_researcher: "– Araştırmacı",
-                role_researcher2: "– Araştırmacı",
+                role_researcher: "– Akademik Danışman",
+                role_researcher2: "",
                 calendar_title: "Uygun Tarihler",
                 calendar_desc: "Aşağıdaki takvimden uygun deney saatlerini görebilirsiniz.",
                 cta_title: "Deneye Katıl",
@@ -415,26 +392,28 @@
             en: {
                 header_desc: "This experiment is conducted by IUI Lab to investigate the effects of cybersickness in virtual reality environments. You can contribute to our research by participating.",
                 link_apply: "Application Form",
+                link_consent: "Consent Form",
+                link_ethics: "Ethical Approval",
                 details_title: "Experiment Details",
                 detail_duration_label: "Duration:",
-                detail_duration_value: "55 – 60 minutes",
+                detail_duration_value: "75 – 90 minutes",
                 detail_age_label: "Age Range:",
                 detail_age_value: "18 – 35 years",
                 detail_date_label: "Dates:",
                 detail_date_value: "February – March 2026",
                 detail_location_label: "Location:",
-                detail_location_value: "IUI Lab, Room: XXX",
+                detail_location_value: "IUI Lab, SNA Z04",
                 detail_reward_label: "Reward / Incentive:",
                 req_title: "Participation Requirements",
                 req_1: "Must be 18 years or older",
-                req_2: "Must not have any known serious motion sickness condition",
+                req_2: "Must not have any known neurological/vestibular conditions like migraine or vertigo",
                 req_3: "Must not have epilepsy",
                 req_4: "Must have normal or corrected-to-normal vision (glasses/lenses allowed)",
                 req_5: "Must not have consumed alcohol in the last 24 hours",
                 team_title: "Research Team",
                 role_pi: "– Principal Investigator",
-                role_researcher: "– Researcher",
-                role_researcher2: "– Researcher",
+                role_researcher: "– Faculty Supervisor",
+                role_researcher2: "",
                 calendar_title: "Available Dates",
                 calendar_desc: "You can see the available experiment times from the calendar below.",
                 cta_title: "Join the Experiment",
@@ -444,13 +423,7 @@
             }
         };
 
-        // --- Dark Mode ---
-        function toggleTheme() {
-            document.body.classList.toggle('dark');
-            const isDark = document.body.classList.contains('dark');
-            document.getElementById('themeBtn').textContent = isDark ? '☀️' : '🌙';
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        }
+
 
         // --- Language ---
         let currentLang = 'tr';
@@ -467,10 +440,6 @@
 
         // --- Init ---
         window.addEventListener('DOMContentLoaded', () => {
-            if (localStorage.getItem('theme') === 'dark') {
-                document.body.classList.add('dark');
-                document.getElementById('themeBtn').textContent = '☀️';
-            }
             const savedLang = localStorage.getItem('lang');
             if (savedLang && savedLang !== 'tr') {
                 currentLang = savedLang;
