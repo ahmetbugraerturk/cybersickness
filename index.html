@@ -188,6 +188,40 @@
             font-weight: 600;
         }
 
+        /* EXPERIMENT FLOW */
+        .exp-flow {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 12px 0 16px;
+        }
+
+        .exp-flow .step {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .exp-flow .step strong {
+            display: block;
+            font-size: 0.88rem;
+            margin-bottom: 2px;
+        }
+
+        .exp-flow .step .dur {
+            color: var(--text-light);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 900px) {
+            .exp-flow {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* TEAM */
         .team-member {
             margin-bottom: 8px;
@@ -301,6 +335,29 @@
                 <div class="value">—</div>
             </div>
 
+            <h3 data-i18n="flow_title">Deney Akışı</h3>
+            <div class="exp-flow">
+                <div class="step">
+                    <strong data-i18n="flow_s1_title">1. Başlangıç Anketleri</strong>
+                    <span data-i18n="flow_s1_desc">MSSQ ve Pre-SSQ anketleri doldurulur.</span>
+                    <div class="dur" data-i18n="flow_s1_dur">~2–3 dk</div>
+                </div>
+                <div class="step">
+                    <strong data-i18n="flow_s2_title">2. VR Oturumları</strong>
+                    <span data-i18n="flow_s2_desc">4 oturum × ~5 dk VR video. Rahatsızlık seviyesi anlık olarak
+                        işaretlenir.</span>
+                </div>
+                <div class="step">
+                    <strong data-i18n="flow_s3_title">3. Dinlenme Araları</strong>
+                    <span data-i18n="flow_s3_desc">Her oturum sonrası minimum 5 dk dinlenme + kısa SSQ anketi.</span>
+                </div>
+                <div class="step">
+                    <strong data-i18n="flow_s4_title">4. Biyofizyolojik Veri</strong>
+                    <span data-i18n="flow_s4_desc">EEG, ECG, GSR ve pupil verileri kaydedilir.</span>
+                    <div class="dur" data-i18n="flow_s4_dur">Sürekli</div>
+                </div>
+            </div>
+
             <h3 data-i18n="req_title">Katılım Koşulları</h3>
             <ul>
                 <li data-i18n="req_1">18 yaş ve üzeri olmalısınız</li>
@@ -377,6 +434,17 @@
                 req_3: "Epilepsi tanınız olmamalıdır",
                 req_4: "Düzeltilmiş görme keskinliğiniz yeterli olmalıdır (gözlük/lens kullanabilirsiniz)",
                 req_5: "Son 24 saat içinde alkol tüketmemiş olmalısınız",
+                flow_title: "Deney Akışı",
+                flow_s1_title: "1. Başlangıç Anketleri",
+                flow_s1_desc: "MSSQ ve Pre-SSQ anketleri doldurulur.",
+                flow_s1_dur: "~2–3 dk",
+                flow_s2_title: "2. VR Oturumları",
+                flow_s2_desc: "4 oturum × ~5 dk VR video. Rahatsızlık seviyesi anlık olarak işaretlenir.",
+                flow_s3_title: "3. Dinlenme Araları",
+                flow_s3_desc: "Her oturum sonrası minimum 5 dk dinlenme + kısa SSQ anketi.",
+                flow_s4_title: "4. Biyofizyolojik Veri",
+                flow_s4_desc: "EEG, ECG, GSR ve pupil verileri kaydedilir.",
+                flow_s4_dur: "Sürekli",
                 team_title: "Araştırma Ekibi",
                 role_pi: "– Proje Yürütücüsü",
                 role_researcher: "– Akademik Danışman",
@@ -409,6 +477,17 @@
                 req_3: "Must not have epilepsy",
                 req_4: "Must have normal or corrected-to-normal vision (glasses/lenses allowed)",
                 req_5: "Must not have consumed alcohol in the last 24 hours",
+                flow_title: "Experiment Flow",
+                flow_s1_title: "1. Pre-Experiment Surveys",
+                flow_s1_desc: "MSSQ and Pre-SSQ questionnaires are filled out.",
+                flow_s1_dur: "~2–3 min",
+                flow_s2_title: "2. VR Sessions",
+                flow_s2_desc: "4 sessions × ~5 min VR video. Discomfort level is marked in real time.",
+                flow_s3_title: "3. Rest Periods",
+                flow_s3_desc: "After each session: minimum 5 min rest + short SSQ questionnaire.",
+                flow_s4_title: "4. Biophysiological Data",
+                flow_s4_desc: "EEG, ECG, GSR and pupil data are recorded throughout.",
+                flow_s4_dur: "Continuous",
                 team_title: "Research Team",
                 role_pi: "– Principal Investigator",
                 role_researcher: "– Faculty Supervisor",
