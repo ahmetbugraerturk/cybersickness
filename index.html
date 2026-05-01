@@ -120,12 +120,11 @@
 
         .header-img {
             width: 140px;
-            height: 140px;
+            height: 180px;
             border-radius: 8px;
             object-fit: cover;
             flex-shrink: 0;
-            background: #e8e8e8;
-            border: 1px solid var(--border);
+            background: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -329,32 +328,29 @@
                 <div class="value" data-i18n="detail_date_value">Şubat – Mart 2026</div>
 
                 <div class="label" data-i18n="detail_location_label">Konum:</div>
-                <div class="value" data-i18n="detail_location_value">IUI Lab, SNA Z04</div>
+                <div class="value" data-i18n="detail_location_value">SOM171 (Tıp Fakültesi, RF Kampüsü)</div>
 
                 <div class="label" data-i18n="detail_reward_label">Teşvik:</div>
                 <div class="value" data-i18n="detail_reward_value">Amazon çeki + COMP301'de 2.5 bonus</div>
             </div>
 
-            <h3 data-i18n="flow_title">Deney Akışı</h3>
+            <h3 data-i18n="flow_title">Deney Detayları</h3>
             <div class="exp-flow">
                 <div class="step">
-                    <strong data-i18n="flow_s1_title">1. Başlangıç Anketleri</strong>
-                    <span data-i18n="flow_s1_desc">MSSQ ve Pre-SSQ anketleri doldurulur.</span>
-                    <div class="dur" data-i18n="flow_s1_dur">~2–3 dk</div>
+                    <strong data-i18n="flow_s1_title">1. Tanıtım ve Cihaz Kurulumu</strong>
+                    <span data-i18n="flow_s1_desc">Deneyin kısa tanıtımı yapılarak katılımcı bilgilendirilecek ve VR ve EEG/ECG/GSR cihazlarının kurulumu gerçekleştirilecektir.</span>
                 </div>
                 <div class="step">
-                    <strong data-i18n="flow_s2_title">2. VR Oturumları</strong>
-                    <span data-i18n="flow_s2_desc">4 oturum × ~5 dk VR video. Rahatsızlık seviyesi anlık olarak
-                        işaretlenir.</span>
+                    <strong data-i18n="flow_s2_title">2. Deney Süreci (Toplam ~40 dk)</strong>
+                    <span data-i18n="flow_s2_desc">Toplam ~40 dakika sürecek oturum: 4 video × ~5 dk (her biri) ve oturumlar arasında dinlenme süreleri olacaktır.</span>
                 </div>
                 <div class="step">
-                    <strong data-i18n="flow_s3_title">3. Dinlenme Araları</strong>
-                    <span data-i18n="flow_s3_desc">Her oturum sonrası minimum 5 dk dinlenme + kısa SSQ anketi.</span>
+                    <strong data-i18n="flow_s3_title">3. Veri Toplama</strong>
+                    <span data-i18n="flow_s3_desc">Deney sırasında cybersickness seviyeleri yanı sıra EEG, ECG, GSR, baş hareketleri ve göz hareket verileri toplanacaktır.</span>
                 </div>
                 <div class="step">
-                    <strong data-i18n="flow_s4_title">4. Biyofizyolojik Veri</strong>
-                    <span data-i18n="flow_s4_desc">EEG, ECG, GSR ve pupil verileri kaydedilir.</span>
-                    <div class="dur" data-i18n="flow_s4_dur">Sürekli</div>
+                    <strong data-i18n="flow_s4_title">4. Temizlik ve Kapanış</strong>
+                    <span data-i18n="flow_s4_desc">Deney bitiminde EEG jeli temizlenmesi için uygun ortam sağlanacak ve katılımcıya kapanış bilgilendirmesi yapılacaktır.</span>
                 </div>
             </div>
 
@@ -399,10 +395,18 @@
         <div class="sidebar">
             <h2 data-i18n="calendar_title" style="margin-bottom: 12px;">Uygun Tarihler</h2>
             <!-- Google Calendar Appointment Scheduling begin -->
+            <!--
             <iframe
                 src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0BgwFJEUFDJFyqAUcsWGURKdvh8NVjTmetu5ySUO7IH9MQJ1NPfw4g1PQpAyDO_KeLwI0kU5SX?gv=true"
                 style="border: 0; width: 100%; height: 800px;" frameborder="0"></iframe>
+            -->
             <!-- end Google Calendar Appointment Scheduling -->
+
+            <!-- TBD placeholder shown instead of the live calendar -->
+            <div style="border:1px dashed var(--border); padding:18px; border-radius:8px; text-align:center; background:var(--bg); color:var(--text);">
+                <strong data-i18n="calendar_tbd">TBD</strong>
+                <div data-i18n="calendar_desc" style="margin-top:6px; color:var(--text-light); font-size:0.95rem;">Aşağıdaki takvimden uygun deney saatlerini görebilirsiniz.</div>
+            </div>
         </div>
     </div>
 
@@ -426,7 +430,7 @@
                 detail_date_label: "Tarihler:",
                 detail_date_value: "Şubat – Mart 2026",
                 detail_location_label: "Konum:",
-                detail_location_value: "IUI Lab, SNA Z04",
+                detail_location_value: "SOM171 (Tıp Fakültesi, RF Kampüsü)",
                 detail_reward_label: "Teşvik:",
                 detail_reward_value: "Amazon çeki + COMP301'de 2.5 bonus",
                 req_title: "Katılım Koşulları",
@@ -435,23 +439,22 @@
                 req_3: "Epilepsi tanınız olmamalıdır",
                 req_4: "Düzeltilmiş görme keskinliğiniz yeterli olmalıdır (gözlük/lens kullanabilirsiniz)",
                 req_5: "Son 24 saat içinde alkol tüketmemiş olmalısınız",
-                flow_title: "Deney Akışı",
-                flow_s1_title: "1. Başlangıç Anketleri",
-                flow_s1_desc: "MSSQ ve Pre-SSQ anketleri doldurulur.",
-                flow_s1_dur: "~2–3 dk",
-                flow_s2_title: "2. VR Oturumları",
-                flow_s2_desc: "4 oturum × ~5 dk VR video. Rahatsızlık seviyesi anlık olarak işaretlenir.",
-                flow_s3_title: "3. Dinlenme Araları",
-                flow_s3_desc: "Her oturum sonrası minimum 5 dk dinlenme + kısa SSQ anketi.",
-                flow_s4_title: "4. Biyofizyolojik Veri",
-                flow_s4_desc: "EEG, ECG, GSR ve pupil verileri kaydedilir.",
-                flow_s4_dur: "Sürekli",
+                flow_title: "Deney Detayları",
+                flow_s1_title: "1. Tanıtım ve Cihaz Kurulumu",
+                flow_s1_desc: "Deneyin kısa tanıtımı yapılarak katılımcı bilgilendirilecek ve VR ve EEG/ECG/GSR cihazlarının kurulumu gerçekleştirilecektir.",
+                flow_s2_title: "2. Deney Süreci (Toplam ~40 dk)",
+                flow_s2_desc: "Toplam ~40 dakika sürecek oturum: 4 video × ~5 dk (her biri) ve oturumlar arasında dinlenme süreleri olacaktır.",
+                flow_s3_title: "3. Veri Toplama",
+                flow_s3_desc: "Deney sırasında cybersickness seviyeleri yanı sıra EEG, ECG, GSR, baş hareketleri (head movement) ve göz hareket/gesture verileri toplanacaktır.",
+                flow_s4_title: "4. Temizlik ve Kapanış",
+                flow_s4_desc: "Deney bitiminde EEG jeli temizlenmesi için uygun ortam sağlanacak ve katılımcıya kapanış bilgilendirmesi yapılacaktır.",
                 team_title: "Araştırma Ekibi",
                 role_pi: "– Proje Yürütücüsü",
                 role_researcher: "– Akademik Danışman",
                 role_researcher2: "",
                 calendar_title: "Uygun Tarihler",
                 calendar_desc: "Aşağıdaki takvimden uygun deney saatlerini görebilirsiniz.",
+                calendar_tbd: "TBD",
                 cta_title: "Deneye Katıl",
                 cta_desc: "Deneye katılmak isterseniz aşağıdaki formu doldurmanız yeterlidir. Bilgileriniz gizli tutulacaktır.",
                 cta_btn: "📋 Başvuru Formunu Doldur",
@@ -470,7 +473,7 @@
                 detail_date_label: "Dates:",
                 detail_date_value: "February – March 2026",
                 detail_location_label: "Location:",
-                detail_location_value: "IUI Lab, SNA Z04",
+                detail_location_value: "SOM171 (School of Medicine, RF Campus)",
                 detail_reward_label: "Incentive:",
                 detail_reward_value: "Amazon gift card + 2.5 bonus in COMP301",
                 req_title: "Participation Requirements",
@@ -479,23 +482,22 @@
                 req_3: "Must not have epilepsy",
                 req_4: "Must have normal or corrected-to-normal vision (glasses/lenses allowed)",
                 req_5: "Must not have consumed alcohol in the last 24 hours",
-                flow_title: "Experiment Flow",
-                flow_s1_title: "1. Pre-Experiment Surveys",
-                flow_s1_desc: "MSSQ and Pre-SSQ questionnaires are filled out.",
-                flow_s1_dur: "~2–3 min",
-                flow_s2_title: "2. VR Sessions",
-                flow_s2_desc: "4 sessions × ~5 min VR video. Discomfort level is marked in real time.",
-                flow_s3_title: "3. Rest Periods",
-                flow_s3_desc: "After each session: minimum 5 min rest + short SSQ questionnaire.",
-                flow_s4_title: "4. Biophysiological Data",
-                flow_s4_desc: "EEG, ECG, GSR and pupil data are recorded throughout.",
-                flow_s4_dur: "Continuous",
+                flow_title: "Experiment Details",
+                flow_s1_title: "1. Introduction & Device Setup",
+                flow_s1_desc: "Brief introduction to the experiment and setup of VR and EEG/ECG/GSR devices.",
+                flow_s2_title: "2. Experiment Session (Total ~40 min)",
+                flow_s2_desc: "Total ~40-minute session: 4 videos × ~5 min each, with rest breaks between sessions.",
+                flow_s3_title: "3. Data Collection",
+                flow_s3_desc: "During the experiment we record cybersickness levels as well as EEG, ECG, GSR, head movement, and eye gesture data.",
+                flow_s4_title: "4. Cleanup & Closing",
+                flow_s4_desc: "After the session we provide facilities to wash off EEG gel and perform closing debrief.",
                 team_title: "Research Team",
                 role_pi: "– Principal Investigator",
                 role_researcher: "– Faculty Supervisor",
                 role_researcher2: "",
                 calendar_title: "Available Dates",
                 calendar_desc: "You can see the available experiment times from the calendar below.",
+                calendar_tbd: "TBD",
                 cta_title: "Join the Experiment",
                 cta_desc: "To participate, simply fill out the form below. Your information will be kept confidential.",
                 cta_btn: "📋 Fill Application Form",
